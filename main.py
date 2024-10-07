@@ -2,5 +2,5 @@
 
 from skibidi import *
 
-asd = open('tests/output.html','w')
-asd.write(parse(open("tests/index.html","r").read()))
+output = open('tests/output.html','w')
+output.write(parse(open("tests/index.html","r").read()))
