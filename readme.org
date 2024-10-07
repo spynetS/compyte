@@ -14,7 +14,7 @@ executing (using eval and replaces with result)
 {% 10 +10 %}
 #+end_src
 
-** Compontents
+** Components
 Components are added with as html with the compontent='[path-to-component-file]'.
 The attributes in the html tag will get added to a props dict and passed to the component file. where it can be accesed
 
