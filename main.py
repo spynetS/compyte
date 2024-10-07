@@ -3,4 +3,4 @@
 from skibidi import *
 
 output = open('tests/output.html','w')
-output.write(parse(open("tests/index.html","r").read()))
+output.write(parse(open("tests/index.html","r").read(),{}))

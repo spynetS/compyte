@@ -14,8 +14,17 @@
 		<!-- Place favicon.ico in the root directory -->
 	</head>
 	<body>
-		{$ import os $}
-		<h1>{% os.getcwd() %}</h1>
+		{$
+		def fibo(num):
+			if num == 1:
+				return 1
+			if num == 0:
+				return 0
+			return fibo(num-1) + fibo(num-2)
+		$}
+		{$ num = 15 $}
+		<h1>Fib of {% num %} = {% fibo(num) %}</h1>
+
 		<card component="./tests/card.html" >
 			{$ string = 'what is ' + str(10-2) $}
 			<h1 class="text-4xl font-bold" >test</h1>
