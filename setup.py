@@ -3,13 +3,16 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="compyte",              # Package name
-    version="0.0.1",                # Initial release version
+    name="Compyter",              # Package name
+    version="0.0.2",                # Initial release version
     packages=find_packages(),       # Automatically find and include all packages
-    install_requires=[],            # Optional: List dependencies (if any)
+    install_requires=[
+        "bs4",
+        "black"
+    ],            # Optional: List dependencies (if any)
     description="A component parser for html",
     long_description=open('README.org').read(),  # Read long description from file
-    long_description_content_type='text/x-org',  # Specify Markdown as the format
+    long_description_content_type='text/plain',  # Specify Markdown as the format
     url="https://github.com/spynets/compyte",  # GitHub repo or package URL
     author="Alfred Roos",             # Your name
     author_email="alfred@stensatter.se",  # Your contact email
