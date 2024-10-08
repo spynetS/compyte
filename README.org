@@ -1,17 +1,16 @@
 #+title: Readme
-
-Compyte is a component library for python which lets you have components in html. It takes in a html with the *Compyte* syntax and returns the html with component results. It has a integrated python run envirionment with the syntax.
+Compyter is a component library for python which lets you have components in html. It takes in a html with the *Compyter* syntax and returns the html with component results. It has a integrated python run envirionment with the syntax.
 
 load stuff (using python exec to load python to the python envirionment)
 #+begin_src django
 {$ import os $}
-{$ name='Compyte'+' toilet' $}
+{$ name='Compyter'+' toilet' $}
 #+end_src
 
 executing (using eval and replaces with result)
 #+begin_src django
-{% name %}
-{% 10 +10 %}
+{@ name @}
+{@ 10 +10 @}
 #+end_src
 
 ** Components
@@ -19,14 +18,14 @@ Components are added with as html with the compontent='[path-to-component-file]'
 The attributes in the html tag will get added to a props dict and passed to the component file. where it can be accesed
 
 #+begin_src django
-{% props['propname'] %}
+{@ props['propname'] @}
 #+end_src
 
 Check out the example down bellow
 
 *** Example
 
-This is a example of the *Compyte* html
+This is a example of the *Compyter* html
 
 - index.html
 #+begin_src html
@@ -47,11 +46,11 @@ This is a example of the *Compyte* html
 	</head>
 	<body>
 		{$ import os $}
-		<h1>{% os.getcwd() %}</h1>
+		<h1>{@ os.getcwd() @}</h1>
 		<card component="./tests/card.html" >
 			{$ string = 'what is ' + str(10-2) $}
 			<h1 class="text-4xl font-bold" >test</h1>
-			<btn title="click" onclick="alert('{% string %}')" component="./tests/button.html"></btn>
+			<btn title="click" onclick="alert('{@ string @}')" component="./tests/button.html"></btn>
 		</card>
 	</body>
 </html>
@@ -61,23 +60,23 @@ This is a example of the *Compyte* html
 -card.html
 #+begin_src html
 <div class="bg-base-200 rounded-lg p-12" >
-  {% props['children'] %}
+  {@ props['children'] @}
 </div>
 #+end_src
 
 -button.html
 #+begin_src html
-<button onclick="{% props['onclick'] %}" class="btn btn-primary" >
-	{% props['title'] %}
+<button onclick="{@ props['onclick'] @}" class="btn btn-primary" >
+	{@ props['title'] @}
 </button>
 #+end_src
 
 
 -main.py
 #+begin_src python
-from compyte import *
+from compyter import *
 
 output = open('tests/output.html','w')
-output.write(parse(open("tests/index.html","r").read()))
+output.write(render_file("tests/index.html"))
 
 #+end_src

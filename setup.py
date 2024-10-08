@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="Compyter",              # Package name
-    version="0.0.3",                # Initial release version
+    version="0.0.4",                # Initial release version
     packages=find_packages(),       # Automatically find and include all packages
     install_requires=[
         "bs4",
