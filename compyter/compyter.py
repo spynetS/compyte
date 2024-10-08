@@ -93,7 +93,7 @@ def render_file(path:str,local_scope:dict, props: dict = {}):
     template = replace_components(open(path,'r').read(),local_scope,path=path)
     return __parse(template,local_scope)
 
-def render_content(content:str,local_scope:dict,props:dict={}):
+def render_content(content:str,local_scope:dict,props:dict={},path=os.getcwd()):
     """
     Function which returns a string of the compiled string with all components added
     params
@@ -101,5 +101,5 @@ def render_content(content:str,local_scope:dict,props:dict={}):
     <local_scope> variables to be used in the page
     <path> path to the components root dir
     """
-    template = replace_components(content,local_scope,path=os.getcwd())
+    template = replace_components(content,local_scope,path=path)
     return __parse(template,local_scope)

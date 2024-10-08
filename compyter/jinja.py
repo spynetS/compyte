@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
-from compyte import render_content
+from compyter import render_content
 
 class Jinja2TemplatesCompyte(Jinja2Templates):
     def jinja_render(self,template:str,scope:dict):
