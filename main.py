@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from skibidi import *
+from compyte import *
 
 output = open('tests/output.html','w')
 output.write(parse(open("tests/index.html","r").read(),{}))
