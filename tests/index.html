@@ -23,12 +23,12 @@
 			return fibo(num-1) + fibo(num-2)
 		$}
 		{$ num = 15 $}
-		<h1>Fib of {% num %} = {% fibo(num) %}</h1>
+		<h1>Fib of {@ num @} = {@ fibo(num) @}</h1>
 
 		<card component="./tests/card.html" >
 			{$ string = 'what is ' + str(10-2) $}
 			<h1 class="text-4xl font-bold" >test</h1>
-			<btn title="click" onclick="alert('{% string %}')" component="./tests/button.html"></btn>
+			<btn title="click" onclick="alert('{@ string @}')" component="./tests/button.html"></btn>
 		</card>
 	</body>
 </html>
