@@ -47,8 +47,8 @@ def replace_components(content,local_scope:dict,path="") -> str:
         combined_path = os.path.join(directory, comp.attrs['component'])
         normalized_path = os.path.normpath(combined_path)
 
-        comp.attrs['children'] = parse(replace_components(comp.decode_contents(),local_scope,path=path),local_scope)
-        new_html = parse(open(normalized_path,"r").read(),local_scope,props=comp.attrs)
+        comp.attrs['children'] = __parse(replace_components(comp.decode_contents(),local_scope,path=path),local_scope)
+        new_html = __parse(open(normalized_path,"r").read(),local_scope,props=comp.attrs)
         comp.replace_with(BeautifulSoup(new_html, 'html.parser'))
 
     return soup.prettify()
@@ -91,7 +91,7 @@ def render_file(path:str,local_scope:dict, props: dict = {}):
     <local_scope> variables to be used in the page
     """
     template = replace_components(open(path,'r').read(),local_scope,path=path)
-    return parse(template,local_scope)
+    return __parse(template,local_scope)
 
 def render_content(content:str,local_scope:dict,props:dict={}):
     """
@@ -102,4 +102,4 @@ def render_content(content:str,local_scope:dict,props:dict={}):
     <path> path to the components root dir
     """
     template = replace_components(content,local_scope,path=os.getcwd())
-    return parse(template,local_scope)
+    return __parse(template,local_scope)
