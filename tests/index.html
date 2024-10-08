@@ -24,11 +24,10 @@
 		$}
 		{$ num = 15 $}
 		<h1>Fib of {@ num @} = {@ fibo(num) @}</h1>
-
-		<card component="./tests/card.html" >
+		<card component="./components/card.html" >
 			{$ string = 'what is ' + str(10-2) $}
 			<h1 class="text-4xl font-bold" >test</h1>
-			<btn title="click" onclick="alert('{@ string @}')" component="./tests/button.html"></btn>
+			<btn title="click" onclick="alert('{@ string @}')" component="./components/button.html"></btn>
 		</card>
 	</body>
 </html>
